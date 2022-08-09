@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Router;
 use App\SQLite;
 
 $sqlite = null;
@@ -16,3 +17,5 @@ catch(Exception $e){
     echo "Could not connect to the SQLite database : ".$e->getMessage();
     die();
 }
+
+Router::handle();
