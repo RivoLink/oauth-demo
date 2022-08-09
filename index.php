@@ -2,11 +2,17 @@
 
 require 'vendor/autoload.php';
 
-use App\SQLiteConnection;
+use App\SQLite;
 
-$pdo = (new SQLiteConnection())->connect();
+$sqlite = null;
 
-if($pdo != null)
-    echo 'Connected to the SQLite database successfully!';
-else
-    echo 'Whoops, could not connect to the SQLite database!';
+try {
+    $sqlite = new SQLite();
+    $sqlite->connect();
+    $sqlite->createTableUser();
+} 
+catch(Exception $e){
+    http_response_code(505);
+    echo "Could not connect to the SQLite database : ".$e->getMessage();
+    die();
+}
