@@ -9,15 +9,16 @@ class Router {
 
             case '':
             case '/':
-                require 'views/index.php';
+            case '/sign-in':
+                require 'views/sign-in.php';
+                break;
+            
+            case '/sign-up':
+                require 'views/sign-up.php';
                 break;
 
             case '/logout':
                 require 'views/logout.php';
-                break;
-
-            case '/register':
-                require 'views/register.php';
                 break;
 
             case '/dashboard':

@@ -1,0 +1,63 @@
+a,
+a:hover {
+    color: #FFF;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.app {
+    background: #000;
+}
+
+.app-header {
+    height: auto;
+    background: #000;
+}
+
+.app-utility-item > a,
+.app-utility-item > a:hover {
+    color: #FFF;
+}
+
+.app-sidepanel {
+    border-right: 1px solid #606060;
+}
+
+.app-sidepanel .sidepanel-inner {
+    background: #000;
+}
+
+.app-branding .logo-text {
+    color: #FFF;
+}
+
+.app-nav {
+    color: #FFF;
+}
+
+.app-nav .nav-item {
+    color: #000;
+}
+
+.app-nav .nav-link.active {
+    color: #000;
+    background: #FFF;
+    border-left: 3px solid #000;
+    font-weight: 500;
+}
+
+.app-content .app-title-icon {
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    left: 5px;
+}
+
+.dropdown-menu,
+.dropdown-menu .dropdown-item,
+.dropdown-menu .dropdown-item:hover {
+    color: #FFF;
+    background-color: #000;
+}
