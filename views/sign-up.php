@@ -16,6 +16,11 @@
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
+                            <div class="loader d-none">
+                                <div class="spinner-border text-dark" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
                             <h5 class="card-title text-center mb-5 fw-bold fs-5">OAuth Demo - Sign Up</h5>
                             <form method="POST" autocomplete="off">
                                 <div class="form-floating mb-3">
@@ -52,6 +57,8 @@
 
         <script src="/assets/plugins/jquery/jquery.min.js"></script>
         <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="/assets/js/script.js"></script>
         <script src="/assets/js/sign-up.js"></script>
     </body>
 </html>

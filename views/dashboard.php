@@ -1,3 +1,9 @@
+<?php
+    if(!is_auth()){
+        header('Location: '.base_url());
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
