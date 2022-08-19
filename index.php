@@ -1,16 +1,16 @@
 <?php
+session_start();
 
+require 'core.php';
 require 'vendor/autoload.php';
 
+use App\Config;
 use App\Router;
 use App\SQLite;
 
-$sqlite = null;
-
 try {
-    $sqlite = new SQLite();
-    $sqlite->connect();
-    $sqlite->createTableUser();
+    SQLite::connect();
+    SQLite::createTable();
 } 
 catch(Exception $e){
     http_response_code(505);
@@ -18,4 +18,5 @@ catch(Exception $e){
     die();
 }
 
+Config::check();
 Router::handle();
