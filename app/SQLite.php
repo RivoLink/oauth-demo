@@ -13,33 +13,66 @@ class SQLite {
      * PDO instance
      * @var type 
      */
-    private $pdo;
+    private static $pdo;
 
     /**
      * return in instance of the PDO object that connects to the SQLite database
-     * @return \PDO
+     * @return PDO
      */
-    public function connect(){
-        if($this->pdo == null){
-            $this->pdo = new PDO(Config::DATABASE_URL);
+    public static function connect(){
+        if(self::$pdo == null){
+            self::$pdo = new PDO(Config::DATABASE_URL);
         }
-        return $this->pdo;
+        return self::$pdo;
     }
 
-    public function createTableUser(){
-        $this->pdo->query(
+    public static function createTable(){
+        self::$pdo->query(
             "CREATE TABLE IF NOT EXISTS user (
                 id TEXT PRIMARY KEY,
-                google_id TEXT NOT NULL,
-                first_name TEXT NOT NULL,
-                last_name TEXT,
+                google_id TEXT,
+                facebook_id TEXT,
+                name TEXT NOT NULL,
                 email TEXT UNIQUE,
-                phone TEXT UNIQUE
+                password TEXT,
+                platform TEXT
             );"
         );
     }
 
-    public function listUsers($id=null, $google_id=null){
+    public static function find($id=null, $google_id=null, $facebook_id=null){
+        $param = [];
+        $query = "SELECT * FROM user";
+
+        if(!$id && !$google_id && !$facebook_id){
+            return null;
+        }
+        else if($id){
+            $param = ['id' => $id];
+            $query = "SELECT * FROM user WHERE id = :id";
+        }
+        else if($google_id){
+            $param = ['google_id' => $google_id];
+            $query = "SELECT * FROM user WHERE google_id = :google_id";
+        }
+        else if($facebook_id){
+            $param = ['facebook_id' => $facebook_id];
+            $query = "SELECT * FROM user WHERE facebook_id = :facebook_id";
+        }
+
+        $stmt = self::$pdo->prepare($query);
+        $stmt->execute($param);
+
+        $result = $stmt->fetchAll();
+
+        if($result && isset($result[0])){
+            return $result[0];
+        }
+
+        return null;
+    }
+
+    public static function list($id=null, $google_id=null){
         $param = [];
         $query = "SELECT * FROM user";
 
@@ -52,30 +85,28 @@ class SQLite {
             $query = "SELECT * FROM user WHERE google_id = :google_id";
         }
 
-        $stmt = $this->pdo->prepare($query);
+        $stmt = self::$pdo->prepare($query);
         $stmt->execute($param);
 
         $result = $stmt->fetchAll();
-        var_dump($result);
-
         return $result;
     }
 
-    public function insertUser($google_id, $first_name, $last_name=null, $email=null, $phone=null){
-        $stmt = $this->pdo->prepare(
-            "INSERT INTO user (id, google_id, first_name, last_name, email, phone)
-             VALUES (:id, :google_id, :first_name, :last_name, :email, :phone);"
+    public static function insert($data){
+        $stmt = self::$pdo->prepare(
+            "INSERT INTO user (id, name, email, password, platform, google_id, facebook_id)
+             VALUES (:id, :name, :email, :password, :platform, :google_id, :facebook_id);"
         );
-        
-        $result = $stmt->execute([
-            "id" => uniqid(),
-            "google_id" => $google_id,
-            "first_name" => $first_name,
-            "last_name" => $last_name,
-            "email" => $email,
-            "phone" => $phone,
-        ]);
-    }
 
+        $user = array_merge($data, [
+            "id" => uniqid(),
+        ]);
+        
+        if($stmt->execute($user)){
+            return $user;
+        }
+
+        return null;
+    }
 
 }
