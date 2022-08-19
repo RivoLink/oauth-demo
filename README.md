@@ -1,4 +1,4 @@
-# google-auth 
+# oauth-demo
 
 ### Running
 ```sh
