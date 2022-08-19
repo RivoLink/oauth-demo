@@ -1,4 +1,7 @@
 /vendor
 
+/db/*
+!/db/*.dist
+
 /private/*
 !/private/*.dist
