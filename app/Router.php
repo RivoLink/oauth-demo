@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Services\AuthService;
+
+use App\Controllers\MainController;
 use App\Controllers\SigninController;
 use App\Controllers\SignupController;
 
@@ -18,6 +20,7 @@ class Router {
     public static function handle(){
         $URI = $_SERVER['REQUEST_URI'];
 
+        $main = Dispatcher::get(MainController::class);
         $signup = Dispatcher::get(SignupController::class);
         $signin = Dispatcher::get(SigninController::class);
 
@@ -28,22 +31,22 @@ class Router {
         );
 
         if($auth){
-            $signup->redirect("/dashboard");
+            $main->redirect("/dashboard");
         }
         else if(!$URI || ($URI === '/')){
-            require 'views/sign-in.php';
+            $main->index();
         }
         else if(self::check('/sign-in')){
-            require 'views/sign-in.php';
+            $main->signIn();
         }
         else if(self::check('/sign-up')){
-            require 'views/sign-up.php';
+            $main->signUp();
         }
         else if(self::check('/logout')){
-            require 'views/logout.php';
+            $main->logout();
         }
         else if(self::check('/dashboard')){
-            require 'views/dashboard.php';
+            $main->dashboard();
         }
         else if(self::check('/api/sign-up/google-url')){
             $signup->googleUrl($_POST, $_GET);
@@ -59,7 +62,7 @@ class Router {
         }
         else {
             http_response_code(404);
-            require 'views/404.php';
+            $main->error404();
         }
     }
 }
