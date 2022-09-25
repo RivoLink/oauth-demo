@@ -1,5 +1,9 @@
 <?php
 
+function config($name){
+    return constant("App\Config::$name");
+}
+
 function is_auth(){
     if(isset($_SESSION["AUTH_ID"])){
         return $_SESSION["AUTH_ID"];
