@@ -19,7 +19,11 @@ abstract class Controller {
         exit();
     }
 
-    public function view($path){
+    public function view($path, $params=[]){
+        if(is_array($params)) foreach($params as $key=>$value){
+            global ${$key};
+            ${$key} = $value;
+        }
         require $path;
     }
 
