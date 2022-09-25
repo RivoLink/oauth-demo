@@ -60,6 +60,12 @@ class Router {
         else if(self::check('/api/sign-in/google-callback', false)){
             $signin->googleCallback($_POST, $_GET);
         }
+        else if(self::check('/api/sign-up/facebook-post')){
+            $signup->facebookPost($_POST, $_GET);
+        }
+        else if(self::check('/api/sign-in/facebook-post')){
+            $signin->facebookPost($_POST, $_GET);
+        }
         else {
             http_response_code(404);
             $main->error404();

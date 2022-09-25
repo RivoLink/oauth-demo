@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\SQLite;
 use App\Services\AuthService;
 use App\Services\GoogleService;
+use App\Services\FacebookService;
 
 class SigninController extends Controller {
 
@@ -32,6 +33,23 @@ class SigninController extends Controller {
         }
 
         return $this->redirect("/sign-up");
+    }
+
+    public function facebookPost($data, $query){
+        $valid = FacebookService::isValidUser($data);
+
+        if(!$valid){
+            return $this->redirect("/sign-in");
+        }
+
+        $user = SQLite::find(null, get($data, "authResponse|userID"));
+        $auth = AuthService::setAuth($user);
+        
+        if($auth){
+            return $this->redirect("/dashboard");
+        }
+
+        return $this->redirect("/sign-in");
     }
 
 }

@@ -56,5 +56,16 @@
 
         <script src="/assets/js/script.js"></script>
         <script src="/assets/js/sign-in.js"></script>
+
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: "<?=$app_id?>",
+                    version: "<?=$app_version?>",
+                    cookie: true,
+                    xfbml: true,
+                });
+            };
+        </script>
     </body>
 </html>

@@ -11,7 +11,18 @@ class MainController extends Controller {
     }
 
     public function signIn(){
-        return $this->view("views/sign-in.php");
+        $params = json_decode(
+            file_get_contents(Config::FACEBOOK_AUTH),
+            true
+        );
+
+        $app_id = get($params, "web|app_id");
+        $app_version = get($params, "web|app_version");
+
+        $this->view("views/sign-in.php", [
+            "app_id" => $app_id,
+            "app_version" => $app_version,
+        ]);
     }
 
     public function signUp(){
