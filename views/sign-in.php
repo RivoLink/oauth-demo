@@ -21,7 +21,7 @@
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </div>
-                            <h5 class="card-title text-center mb-5 fw-bold fs-5">OAuth Demo - Sign in</h5>
+                            <h5 class="card-title text-center mb-5 fw-bold fs-5">OAuth Demo - Sign In</h5>
                             <form method="POST" autocomplete="off">
                                 <div class="form-floating mb-3">
                                     <input type="email" name="email" class="form-control" id="si-email" placeholder="name@example.com" />
