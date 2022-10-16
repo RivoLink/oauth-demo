@@ -15,7 +15,7 @@
         <meta name="author" content="Xiaoying Riley at 3rd Wave Media" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
 
-        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/plugins/portal/css/portal.css" />
         <link rel="stylesheet" href="/assets/css/dashboard.css" />
     </head>
