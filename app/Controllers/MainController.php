@@ -3,16 +3,31 @@
 namespace App\Controllers;
 
 use App\Config;
+use App\SQLite;
 use App\Services\AuthService;
 use App\Services\SigninService;
 use App\Services\SignupService;
-use App\Services\UserService;
-use App\SQLite;
 
 class MainController extends Controller {
 
     public function index(){
         return $this->redirect("/sign-in");
+    }
+
+    public function logout(){
+        return $this->view("views/logout.php");
+    }
+
+    public function error404(){
+        return $this->view("views/404.php");
+    }
+
+    public function dashboard($user_id){
+        $users = SQLite::list();
+
+        return $this->view("views/dashboard.php", [
+            "users" => $users,
+        ]);
     }
 
     public function signIn($post, $query){
@@ -84,17 +99,4 @@ class MainController extends Controller {
             "app_version" => $app_version,
         ]);
     }
-
-    public function logout(){
-        return $this->view("views/logout.php");
-    }
-
-    public function dashboard(){
-        return $this->view("views/dashboard.php");
-    }
-
-    public function error404(){
-        return $this->view("views/404.php");
-    }
-
 }

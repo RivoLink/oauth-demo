@@ -88,17 +88,13 @@ class SQLite {
         return null;
     }
 
-    public static function list($id=null, $google_id=null){
+    public static function list($exclude_id=null){
         $param = [];
         $query = "SELECT * FROM user";
 
-        if($id){
-            $param = ['id' => $id];
-            $query = "SELECT * FROM user WHERE id = :id";
-        }
-        else if($google_id){
-            $param = ['google_id' => $google_id];
-            $query = "SELECT * FROM user WHERE google_id = :google_id";
+        if($exclude_id){
+            $param = ['id' => $exclude_id];
+            $query = "SELECT * FROM user WHERE id <> :id";
         }
 
         $stmt = self::$pdo->prepare($query);

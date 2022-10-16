@@ -124,24 +124,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">62fe2fad1f09a</th>
-                                                    <td>Mark Otto</td>
-                                                    <td>Google</td>
-                                                    <td>mark.otto@example.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">62fe2fb9644eb</th>
-                                                    <td>Jennie Nichols</td>
-                                                    <td>Facebook</td>
-                                                    <td>jennie.nichols@example.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">62fe2fc3a333f</th>
-                                                    <td>Jacob Thornton</td>
-                                                    <td>Google</td>
-                                                    <td>jacob.thornton@example.com</td>
-                                                </tr>
+                                                <?php 
+                                                    foreach($users as $user) echo ("
+                                                        <tr>
+                                                            <th scope='row'>$user[id]</th>
+                                                            <td>$user[name]</td>
+                                                            <td>$user[platform]</td>
+                                                            <td>$user[email]</td>
+                                                        </tr>
+                                                    ");
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
