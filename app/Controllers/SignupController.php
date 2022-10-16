@@ -51,8 +51,10 @@ class SignupController extends Controller {
         ]);
     }
 
-    public function facebookPost($data, $query){
-        $infos = FacebookService::getFacebookUserInfo($data);
+    public function facebookPost($post, $query){
+        $infos = FacebookService::getFacebookUserInfo(
+            get($post, "data")
+        );
 
         if(!$infos){
             return $this->throwAccessDenied();
