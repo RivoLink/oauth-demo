@@ -31,7 +31,7 @@ class MainController extends Controller {
     }
 
     public function signIn($post, $query){
-        $errors = [];
+        $errors = $this->getErrors();
         
         $params = json_decode(
             file_get_contents(Config::FACEBOOK_AUTH),
@@ -63,7 +63,8 @@ class MainController extends Controller {
     }
 
     public function signUp($post, $query){
-        $errors = [];
+        $errors = $this->getErrors();
+
         $fields = [
             "name" => null,
             "email" => null,

@@ -42,7 +42,7 @@ class SignupService {
         foreach($fields as $field => $value){
             if($field == "email" && $value){
                 if(SQLite::findByEmail(get($post, "email"))){
-                    $errors[] = "Email already existing";
+                    $errors[] = "Email already exists";
                 }
             }
             if($field == "password" && $value){

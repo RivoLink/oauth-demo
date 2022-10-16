@@ -32,14 +32,18 @@ class SigninController extends Controller {
             return $this->redirect("/dashboard");
         }
 
-        return $this->redirect("/sign-up");
+        return $this->redirect("/sign-in", [
+            "An error occured, please try again"
+        ]);
     }
 
     public function facebookPost($data, $query){
         $valid = FacebookService::isValidUser($data);
 
         if(!$valid){
-            return $this->redirect("/sign-in");
+            return $this->redirect("/sign-in", [
+            "An error occured, please try again"
+        ]);
         }
 
         $user = SQLite::find(null, get($data, "authResponse|userID"));
@@ -49,7 +53,9 @@ class SigninController extends Controller {
             return $this->redirect("/dashboard");
         }
 
-        return $this->redirect("/sign-in");
+        return $this->redirect("/sign-in", [
+            "An error occured, please try again"
+        ]);
     }
 
 }

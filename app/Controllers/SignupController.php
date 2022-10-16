@@ -22,6 +22,16 @@ class SignupController extends Controller {
 
     public function googleCallback($data, $query){
         $infos = GoogleService::getGoogleUserInfo($query);
+
+        if(!$infos){
+            return $this->throwAccessDenied();
+        }
+
+        if(SQLite::findByEmail(get($infos, "email"))){
+            return $this->redirect("/sign-up", [
+                "Email already exists, please use another Google Account"
+            ]);
+        }
         
         $auth = false;
         $user = SQLite::find(null, get($infos, "google_id"));
@@ -36,14 +46,22 @@ class SignupController extends Controller {
             return $this->redirect("/dashboard");
         }
 
-        return $this->redirect("/sign-up");
+        return $this->redirect("/sign-up", [
+            "An error occured, please try again"
+        ]);
     }
 
     public function facebookPost($data, $query){
         $infos = FacebookService::getFacebookUserInfo($data);
 
         if(!$infos){
-            return $this->redirect("/sign-in");
+            return $this->throwAccessDenied();
+        }
+
+        if(SQLite::findByEmail(get($infos, "email"))){
+            return $this->redirect("/sign-up", [
+                "Email already exists, please use another Facebook Account"
+            ]);
         }
 
         $auth = false;
@@ -59,7 +77,9 @@ class SignupController extends Controller {
             return $this->redirect("/dashboard");
         }
 
-        return $this->redirect("/sign-up");
+        return $this->redirect("/sign-up", [
+            "An error occured, please try again"
+        ]);
     }
 
 }
