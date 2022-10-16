@@ -7,7 +7,7 @@ use App\Config;
 class MainController extends Controller {
 
     public function index(){
-        return $this->view("views/sign-in.php");
+        return $this->redirect("/sign-in");
     }
 
     public function signIn(){
