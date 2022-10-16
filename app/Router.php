@@ -34,19 +34,19 @@ class Router {
             $main->redirect("/dashboard");
         }
         else if(!$URI || ($URI === '/')){
-            $main->index();
+            $main->index($_POST, $_GET);
         }
         else if(self::check('/sign-in')){
-            $main->signIn();
+            $main->signIn($_POST, $_GET);
         }
         else if(self::check('/sign-up')){
-            $main->signUp();
+            $main->signUp($_POST, $_GET);
         }
         else if(self::check('/logout')){
-            $main->logout();
+            $main->logout($_POST, $_GET);
         }
         else if(self::check('/dashboard')){
-            $main->dashboard();
+            $main->dashboard($_POST, $_GET);
         }
         else if(self::check('/api/sign-up/google-url')){
             $signup->googleUrl($_POST, $_GET);

@@ -67,3 +67,21 @@ function gen_pwd($length=12){
     $password = $rand_byte.$password;
     return $password;
 }
+
+function req_pwd($password){
+    $length = (7 <= strlen($password));
+    // $uppercase = preg_match('@[A-Z]@', $password);
+    // $lowercase = preg_match('@[a-z]@', $password);
+    $number = preg_match('@[0-9]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+
+    return ($length && $number && $specialChars);
+}
+
+function hash_pwd($password){
+    return password_hash($password, PASSWORD_BCRYPT);
+}
+
+function verify_pwd($password, $hash){
+    return password_verify($password, $hash);
+}

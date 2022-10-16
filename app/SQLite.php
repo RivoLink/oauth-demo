@@ -40,6 +40,22 @@ class SQLite {
         );
     }
 
+    public static function findByEmail($email){
+        $query = "SELECT * FROM user WHERE email = :email";
+        $param = ["email" => $email];
+
+        $stmt = self::$pdo->prepare($query);
+        $stmt->execute($param);
+
+        $result = $stmt->fetchAll();
+
+        if($result && isset($result[0])){
+            return $result[0];
+        }
+
+        return null;
+    }
+
     public static function find($id=null, $google_id=null, $facebook_id=null){
         $param = [];
         $query = "SELECT * FROM user";

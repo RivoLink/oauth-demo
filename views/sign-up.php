@@ -21,18 +21,33 @@
                                 </div>
                             </div>
                             <h5 class="card-title text-center mb-5 fw-bold fs-5">OAuth Demo - Sign Up</h5>
-                            <form method="POST" autocomplete="off">
+                            <form method="POST">
+                                <?php 
+                                    foreach($errors as $error) echo ("
+                                        <div class='text-center alert alert-danger py-2' role='alert'>
+                                            $error
+                                        </div>
+                                    ");
+                                ?>
                                 <div class="form-floating mb-3">
-                                    <input type="Text" name="name" class="form-control" id="su-name" placeholder="name@example.com" />
+                                    <input value="<?=$fields['name']?>" type="Text" name="name" class="form-control" id="su-name" placeholder="Name" required/>
                                     <label for="su-name">Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" name="email" class="form-control" id="su-email" placeholder="name@example.com" />
+                                    <input value="<?=$fields['email']?>" type="email" autocomplete="off" name="email" class="form-control" id="su-email" placeholder="Email" required/>
                                     <label for="su-email">Email</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" autocomplete="new-password" name="password" class="form-control" id="su-password" placeholder="Password" />
+                                    <input type="password" autocomplete="new-password" name="password" class="form-control" id="su-password" placeholder="Password" required
+                                           pattern="(?=.*\d)(?=.*[\W_]).{7,}" title="Minimum of 7 characters. Should have at least one special character and one number." 
+                                    />
                                     <label for="su-password">Password</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" name="cpassword" class="form-control" id="su-cpassword" placeholder="Password confirmation" required
+                                           pattern="(?=.*\d)(?=.*[\W_]).{7,}" title="Minimum of 7 characters. Should have at least one special character and one number." 
+                                    />
+                                    <label for="su-password">Password confirmation</label>
                                 </div>
                                 <div class="d-grid">
                                     <button class="btn btn-dark btn-login fw-bold" type="submit">Sign up</button>

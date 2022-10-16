@@ -22,13 +22,20 @@
                                 </div>
                             </div>
                             <h5 class="card-title text-center mb-5 fw-bold fs-5">OAuth Demo - Sign In</h5>
-                            <form method="POST" autocomplete="off">
+                            <form method="POST">
+                                <?php 
+                                    foreach($errors as $error) echo ("
+                                        <div class='text-center alert alert-danger py-2' role='alert'>
+                                            $error
+                                        </div>
+                                    ");
+                                ?>
                                 <div class="form-floating mb-3">
-                                    <input type="email" name="email" class="form-control" id="si-email" placeholder="name@example.com" />
+                                    <input type="email" name="email" class="form-control" id="si-email" placeholder="Email" required/>
                                     <label for="si-email">Email</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" autocomplete="new-password" name="password" class="form-control" id="si-password" placeholder="Password" />
+                                    <input type="password" name="password" class="form-control" id="si-password" placeholder="Password" required/>
                                     <label for="si-password">Password</label>
                                 </div>
                                 <div class="d-grid">
