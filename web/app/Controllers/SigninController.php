@@ -33,7 +33,7 @@ class SigninController extends Controller {
         }
 
         return $this->redirect("/sign-in", [
-            "An error occured, please try again"
+            "Account not exist, please sign-up"
         ]);
     }
 
@@ -56,7 +56,7 @@ class SigninController extends Controller {
         }
 
         return $this->redirect("/sign-in", [
-            "An error occured, please try again"
+            "Account not exist, please sign-up"
         ]);
     }
 
