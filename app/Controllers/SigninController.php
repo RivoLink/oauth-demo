@@ -38,15 +38,17 @@ class SigninController extends Controller {
     }
 
     public function facebookPost($data, $query){
+        $data = json_decode(get($data, "data"), true);
+        
         $valid = FacebookService::isValidUser($data);
 
         if(!$valid){
             return $this->redirect("/sign-in", [
-            "An error occured, please try again"
-        ]);
+                "An error occured, please try again"
+            ]);
         }
 
-        $user = SQLite::find(null, get($data, "authResponse|userID"));
+        $user = SQLite::find(null, null, get($data, "authResponse|userID"));
         $auth = AuthService::setAuth($user);
         
         if($auth){

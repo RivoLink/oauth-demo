@@ -7,7 +7,7 @@ class FacebookService {
     const SIGN_IN = "SIGN_IN";
     const SIGN_UP = "SIGN_UP";
 
-    const PLATFORM = "Google";
+    const PLATFORM = "Facebook";
 
     public static function isValidUser($data){
         $userID = get($data, "authResponse|userID");

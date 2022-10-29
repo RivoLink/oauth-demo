@@ -45,7 +45,7 @@ function listenSignupFacebook(){
                     }
                 }, 
                 { 
-                    scope: 'email,public_profile' 
+                    scope: 'public_profile' 
                 });
             }
         });
@@ -53,12 +53,12 @@ function listenSignupFacebook(){
 }
 
 function postFacebookOAuth(response){
-    var url = "/api/sign-up/facebook-post";
+    var url = "/api/sign-in/facebook-post";
     var data = json_encode(response);
 
     $(`
         <form action="${url}" method="post">
-            <input name="data" value='${data}'>
+            <input type="hidden" name="data" value='${data}'>
         </form>
     `)
     .appendTo(document.body)

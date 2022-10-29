@@ -58,8 +58,7 @@ function postFacebookOAuth(response){
 
     $(`
         <form action="${url}" method="post">
-            <input name="data" value='${data}'>
-            <input name="token" value='${token}'>
+            <input type="hidden" name="data" value='${data}'>
         </form>
     `)
     .appendTo(document.body)

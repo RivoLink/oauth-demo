@@ -53,7 +53,7 @@ class SignupController extends Controller {
 
     public function facebookPost($post, $query){
         $infos = FacebookService::getFacebookUserInfo(
-            get($post, "data")
+            json_decode(get($post, "data"), true)
         );
 
         if(!$infos){
