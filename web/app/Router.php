@@ -45,6 +45,9 @@ class Router {
         else if(self::check('/logout')){
             $main->logout();
         }
+        else if(self::check('/privacy-policy')){
+            $main->privacyPolicy();
+        }
         else if(self::check('/dashboard')){
             $main->dashboard($_SESSION["AUTH_ID"]);
         }

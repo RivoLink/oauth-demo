@@ -18,6 +18,10 @@ class MainController extends Controller {
         return $this->view("views/logout.php");
     }
 
+    public function privacyPolicy(){
+        return $this->view("views/privacy-policy.php");
+    }
+
     public function error404(){
         return $this->view("views/404.php");
     }
