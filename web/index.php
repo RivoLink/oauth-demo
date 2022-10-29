@@ -2,7 +2,7 @@
 session_start();
 
 require 'core.php';
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use App\Config;
 use App\Router;

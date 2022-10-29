@@ -1,7 +1,7 @@
 /vendor
 
-/db/*
-!/db/*.dist
+/web/db/*
+!/web/db/*.dist
 
-/private/*
-!/private/*.dist
+/web/private/*
+!/web/private/*.dist

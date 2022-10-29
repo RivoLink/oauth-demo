@@ -4,7 +4,7 @@
 
 ### Start PHP built-in server
 ```sh
-php -S localhost:8930
+php -S localhost:8930 -t web
 ```
 
 ### Setup local HTTPS protocol with Stunnel
