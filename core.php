@@ -13,7 +13,8 @@ function is_auth(){
 
 function base_url($uri=""){
     return (
-        (isset($_SERVER['HTTPS']) ? "https" : "http") . //scheme
+        // (isset($_SERVER['HTTPS']) ? "https" : "http") . //scheme
+        ("https") .
         ("://$_SERVER[HTTP_HOST]") . //host:port
         ($uri ? $uri : "") //uri
     );
