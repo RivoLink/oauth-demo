@@ -15,6 +15,7 @@
         }
     },
     "require": {
+        "ext-pdo_sqlite": "*",
         "google/apiclient": "^2.12"
     }
 }
