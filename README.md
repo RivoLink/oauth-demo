@@ -1,6 +1,8 @@
 # OAuth Demo
 
-<img src="./screenshot.png"/>
+<p align="center">
+    <img src="./screenshot.png"/>
+</p>
 
 ## Local testing with PHP built-in server
 
