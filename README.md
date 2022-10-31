@@ -1,4 +1,6 @@
-# oauth-demo
+# OAuth Demo
+
+<img src="./screenshot.png"/>
 
 ## Local testing with PHP built-in server
 
