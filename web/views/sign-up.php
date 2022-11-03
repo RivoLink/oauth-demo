@@ -77,14 +77,14 @@
         <script src="/assets/js/sign-up.js"></script>
 
         <script>
-            window.fbAsyncInit = function () {
+            // window.fbAsyncInit = function () {
                 FB.init({
                     appId: "<?=$app_id?>",
                     version: "<?=$app_version?>",
                     cookie: true,
                     xfbml: true,
                 });
-            };
+            // };
         </script>
     </body>
 </html>
