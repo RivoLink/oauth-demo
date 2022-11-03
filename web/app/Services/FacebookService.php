@@ -83,11 +83,16 @@ class FacebookService {
             return [];
         }
 
+        $infos["name"] = trim(
+            get($infos, "first_name") ." ".
+            get($infos, "last_name")
+        );
+
         return [
             "platform" => self::PLATFORM,
             "google_id" => null,
             "facebook_id" => get($infos, "id"),
-            "name" => get($infos, "first_name"),
+            "name" => get($infos, "name"),
             "email" => get($infos, "email"),
             "password" => gen_pwd(),
         ];
