@@ -52,7 +52,7 @@ cert = stunnel.pem
 ### Facebook App - Email and Public Profile access
 - In the left menu, select *App Review* > *Permissions and Features*
 - Search for *"email"* and *"Get advanced access*"
-- Search for *"email"* and *"Get advanced access*"
+- Search for *"public_profile"* and *"Get advanced access*"
 
 ### Facebook App - Live Mode
 - In the header menu, switch your app to *"App Mode: Live"*
