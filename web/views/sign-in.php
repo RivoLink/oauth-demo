@@ -69,7 +69,8 @@
             FB.init({
                 appId: "<?=$app_id?>",
                 version: "<?=$app_version?>",
-                cookie: true,
+                status: false,
+                cookie: false,
                 xfbml: true,
             });
         </script>
