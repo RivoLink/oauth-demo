@@ -4,10 +4,18 @@ namespace App\Controllers;
 
 abstract class Controller {
 
-    protected function redirect($uri="", $errors=null){
+    public function redirect($uri="", $errors=null){
         $this->addErrors($errors);
         header('Location: '.base_url($uri));
         exit;
+    }
+
+    public function view($path, $params=[]){
+        if(is_array($params)) foreach($params as $key=>$value){
+            global ${$key};
+            ${$key} = $value;
+        }
+        require $path;
     }
 
     protected function dump($value){
@@ -18,14 +26,6 @@ abstract class Controller {
         header("Content-Type: application/json");
         echo json_encode($array);
         exit();
-    }
-
-    protected function view($path, $params=[]){
-        if(is_array($params)) foreach($params as $key=>$value){
-            global ${$key};
-            ${$key} = $value;
-        }
-        require $path;
     }
 
     protected function throwAccessDenied(){
