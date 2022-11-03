@@ -121,4 +121,18 @@ class SQLite {
         return null;
     }
 
+    public static function delete($id=null){
+        if(!$id){
+            return true;
+        }
+
+        $param = ['id' => $id];
+        $query = "DELETE FROM user WHERE id = :id";
+
+        $stmt = self::$pdo->prepare($query);
+        $stmt->execute($param);
+
+        return true;
+    }
+
 }

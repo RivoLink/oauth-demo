@@ -46,7 +46,13 @@
                                         </svg>
 									</a>
                                     <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-                                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                                        <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                                        <li>
+                                            <a class="dropdown-item btn-delete-account" href="#">Delete Account</a>
+                                            <form action="/delete-account" method="post" class="form-delete-account d-none">
+                                                <input type="hidden" name="csrf" value="<?=$csrf?>">
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -146,7 +152,11 @@
             </div>
         </div>
 
+        <script src="/assets/plugins/jquery/jquery.min.js"></script>
         <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/assets/plugins/portal/js/portal.js"></script>
+
+        <script src="/assets/js/script.js"></script>
+        <script src="/assets/js/dashboard.js"></script>
     </body>
 </html>

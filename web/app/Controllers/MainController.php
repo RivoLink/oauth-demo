@@ -28,10 +28,24 @@ class MainController extends Controller {
 
     public function dashboard($user_id){
         $users = SQLite::list();
+        $csrf = AuthService::getCSRF();
 
         return $this->view("views/dashboard.php", [
+            "csrf" => $csrf,
             "users" => $users,
         ]);
+    }
+
+    public function deleteAccount($post, $query, $user_id){
+        $key = get($post, "csrf");
+        $csrf = AuthService::getCSRF();
+
+        if($key === $csrf){
+            SQLite::delete($user_id);
+            return $this->redirect("/logout");
+        }
+
+        return $this->throwAccessDenied();
     }
 
     public function signIn($post, $query){

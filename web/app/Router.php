@@ -27,7 +27,8 @@ class Router {
         $auth = (
             AuthService::isAuth() &&
             !self::check('/logout') &&
-            !self::check('/dashboard')
+            !self::check('/dashboard') &&
+            !self::check('/delete-account')
         );
 
         if($auth){
@@ -50,6 +51,9 @@ class Router {
         }
         else if(self::check('/dashboard')){
             $main->dashboard($_SESSION["AUTH_ID"]);
+        }
+        else if(self::check('/delete-account')){
+            $main->deleteAccount($_POST, $_GET, $_SESSION["AUTH_ID"]);
         }
         else if(self::check('/api/sign-up/google-url')){
             $signup->googleUrl($_POST, $_GET);

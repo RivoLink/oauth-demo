@@ -19,4 +19,16 @@ class AuthService {
         return false;
     }
 
+    public static function getCSRF($gen=false){
+        if(!$_SESSION || !isset($_SESSION["AUTH_ID"])){
+            return uniqid();
+        }
+
+        if($gen || !$_SESSION["AUTH_ID"]){
+            $_SESSION["AUTH_ID"] = uniqid();
+        }
+
+        return $_SESSION["AUTH_ID"];
+    }
+
 }
