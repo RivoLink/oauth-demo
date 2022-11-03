@@ -60,7 +60,7 @@
 
         <script src="/assets/plugins/jquery/jquery.min.js"></script>
         <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="https://connect.facebook.net/en_US/sdk.js" crossorigin="anonymous"></script>
+        <script src="https://connect.facebook.net/en_US/all.js" crossorigin="anonymous"></script>
 
         <script src="/assets/js/script.js"></script>
         <script src="/assets/js/sign-in.js"></script>
