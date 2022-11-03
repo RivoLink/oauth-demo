@@ -1,7 +1,7 @@
 $(function(){
 
     listenSigninGoogle();
-    listenSignupFacebook();
+    listenSigninFacebook();
 
 })
 
@@ -25,7 +25,7 @@ function listenSigninGoogle(){
     })
 }
 
-function listenSignupFacebook(){
+function listenSigninFacebook(){
     $(".btn-facebook").on("click", function(event){
         preventDefault(event);
         toggleLoader(true);

@@ -43,10 +43,10 @@
                                 </div>
                                 <hr class="my-4" />
                                 <div class="d-grid mb-2">
-                                    <button class="btn btn-google btn-login fw-bold" type="submit"><i class="fab fa-google me-2"></i> Sign in with Google</button>
+                                    <button class="btn btn-google btn-login fw-bold" type="button"><i class="fab fa-google me-2"></i> Sign in with Google</button>
                                 </div>
                                 <div class="d-grid">
-                                    <button class="btn btn-facebook btn-login fw-bold" type="submit"><i class="fab fa-facebook-f me-2"></i> Sign in with Facebook</button>
+                                    <button class="btn btn-facebook btn-login fw-bold" type="button"><i class="fab fa-facebook-f me-2"></i> Sign in with Facebook</button>
                                 </div>
                                 <div class="d-grid text-center mt-2">
                                     <small>New on OAuth Demo, <a href="/sign-up">Sign up</a></small>
