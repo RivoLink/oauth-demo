@@ -1,0 +1,10 @@
+### Enable Rewrite Engine
+RewriteEngine On
+
+### Force HTTP to HTTPS
+RewriteCond %{HTTPS}  !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+### Redirect request to PHP directory
+RewriteRule ^(.*)$ /web/$1
+RewriteRule ^(/)?$ web/index.php [L]
