@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>OAuth Demo - Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.png">
 
         <meta name="author" content="Xiaoying Riley at 3rd Wave Media" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
