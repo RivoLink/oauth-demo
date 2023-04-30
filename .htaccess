@@ -5,7 +5,8 @@ RewriteEngine On
 RewriteCond %{HTTPS}  !=on
 RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 
-### Redirect request to PHP directory
+### Hide db and private directory
+RewriteCond %{REQUEST_URI} ^/db [OR]
 RewriteCond %{REQUEST_URI} ^/private
 RewriteRule ^(.*)$ web/views/404.php [L]
 
