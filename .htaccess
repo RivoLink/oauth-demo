@@ -6,5 +6,8 @@ RewriteCond %{HTTPS}  !=on
 RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 
 ### Redirect request to PHP directory
+RewriteCond %{REQUEST_URI} ^/private
+RewriteRule ^(.*)$ web/views/404.php [L]
+
+### Redirect request to PHP directory
 RewriteRule ^(.*)$ /web/$1
-RewriteRule ^(/)?$ web/index.php [L]

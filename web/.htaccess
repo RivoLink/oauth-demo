@@ -1,3 +1,9 @@
 RewriteEngine On
+
+# Remove /web from url
+RewriteCond %{THE_REQUEST} \s/+web/(\S*) [NC]
+RewriteRule ^ /%1 [L,R=301,NE]
+
+# Default redirection
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
