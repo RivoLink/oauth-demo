@@ -124,7 +124,6 @@
                                         <table class="table table-light table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th width="20%"scope="col">ID</th>
                                                     <th width="20%"scope="col">Name</th>
                                                     <th width="20%"scope="col">Platform</th>
                                                     <th width="40%"scope="col">Email</th>
@@ -134,7 +133,6 @@
                                                 <?php 
                                                     foreach($users as $user) echo ("
                                                         <tr>
-                                                            <th scope='row'>$user[id]</th>
                                                             <td>$user[name]</td>
                                                             <td>$user[platform]</td>
                                                             <td>$user[email]</td>
