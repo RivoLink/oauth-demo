@@ -118,9 +118,9 @@
 
                     <div class="app-card bg-light shadow-sm mb-4">
                         <div class="inner">
-                            <div class="app-card-body p-1">
+                            <div class="app-card-body p-1 overflow-hidden">
                                 <div class="row gx-5 gy-3">
-                                    <div>
+                                    <div class="overflow-auto">
                                         <table class="table table-light table-striped">
                                             <thead>
                                                 <tr>
