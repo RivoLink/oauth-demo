@@ -14,7 +14,7 @@ php -S localhost:3092 -t web
 ### Local HTTPS protocol with Stunnel
 - Download Stunnel from https://www.stunnel.org/downloads.html
 - Install it
-- Open configuration file `stunnel.conf` from `[installation path]\stunnel\config\` directory
+- Open configuration file `stunnel.conf` from `[installation path]/stunnel/config/` directory
 - At the end of the file put the next part of the code:
 
 ```sh
@@ -56,7 +56,7 @@ cert = stunnel.pem
 
 ### Facebook App - Live Mode
 - In the header menu, switch your app to *"App Mode: Live"*
-- Copy `web\private\facebook-auth.json.dist` to `web\private\facebook-auth.json`
+- Copy `web/private/facebook-auth.json.dist` to `web/private/facebook-auth.json`
 - Set `app_id` value to your *"Facebook App ID"*
 - Set `app_version` value to your *"Facebook App Version"*, maybe `v14.0`
 
@@ -68,7 +68,7 @@ cert = stunnel.pem
 
 ### Google OAuth consent screen
 - In the left menu, select *"OAuth consent screen"*
-- Choose "*User Type: External" and *"Create"*
+- Choose *"User Type: External"* and *"Create"*
 - Fill in *"App information"* fields
 - Fill in *"App domain"* fields
 - Add *"App domain"*
@@ -89,6 +89,6 @@ cert = stunnel.pem
 ### Google - Publish App
 - In the left menu, select *"OAuth consent screen"*
 - Click *"Publish App"* under *"Publishing status"* section
-- Copy `web\private\google-auth.json.dist` to `web\private\google-auth.json`
+- Copy `web/private/google-auth.json.dist` to `web/private/google-auth.json`
 - Set `client_id` value to your backuped Google *"Client ID"*
 - Set `client_secret` value to your backuped Google *"Client Secret"*
